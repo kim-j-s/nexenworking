@@ -617,6 +617,10 @@ no-repeat left center;}
 .typeTxt3 span {display:inline-block; width:56px; text-align:center; line-height:20px; font-size:12px; color:#454545; border-radius:2px; border:1px solid #666;}
 .typeTxt3 span + span {margin-left:3px;}
 
+.typeTxt4 {display:inline-block; vertical-align:middle; font-size:0;}
+.typeTxt4 span {display:inline-block; min-width:56px; padding:0 10px; text-align:center; line-height:28px; font-size:14px; color:#454545; border-radius:2px; border:1px solid #666;}
+.typeTxt4 span + span {margin-left:8px;}
+
 .hashWrap {display:inline-block; vertical-align:middle; overflow:hidden;}
 .hashWrap > .hashTag {position:relative; float:left; display:inline-block; padding:0 12px; margin:0 10px 10px 0;}
 .hashWrap > .hashTag:last-child {margin-right:0;}
