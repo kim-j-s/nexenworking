@@ -1,0 +1,96 @@
+@@include('include/head_sub.html',{
+	"pagetitle": "이벤트"
+})
+<body>
+	<div id="wrap">
+		<!-- 헤더영역 -->
+		@@include('include/header.html')
+		<!-- //헤더영역 -->
+
+		<div class="location">
+			<span class="home">홈</span>
+			<span>멤버십/혜택</span>
+			<span>이벤트</span>
+		</div>
+
+		<section id="content">
+			<h1 class="sectionTitle">이벤트</h1>
+
+			<div class="tabWrap">
+				<ul class="tabList">
+					<li class="on"><button><span>진행중 이벤트</span></button></li>
+					<li><button><span>지난 이벤트/당첨자 발표</span></button></li>
+				</ul>
+
+				<!-- 진행중 이벤트 -->
+				<div class="tabContent on">
+					<div class="detailPage">
+						<div class="title">
+							<p class="txt ellipsis">타이어 점검받고, 넥센타이어와 안전하고 풍성한 한가위 되세요.</p>
+							<span class="date">2018.08.20 ~ 2018.09.30</span>
+						</div>
+						<div class="detailContent">
+							<img src="../static/images/sample/event_detail.jpg" alt="" />
+						</div>
+						<ul class="detailNav">
+							<li>
+								<a href="#">
+									<em class="prev"><span>이전글</span></em>
+									<span class="listTxt ellipsis">조용~한 NFERA 구매하고, 맑은 공기까지 챙기세요!</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<em class="next"><span>다음글</span></em>
+									<span class="listTxt ellipsis">추석맞이 인기 타이어 최 ~ 대 특가</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="btnBox">
+						<a href="#" class="btn ty2"><span>목록</span></a>
+					</div>
+				</div>
+				<!-- 진행중 이벤트 -->
+
+				<!-- 지난 이벤트/당첨자 발표 -->
+				<div class="tabContent">
+					<div class="detailPage">
+						<div class="title">
+							<p class="txt ellipsis">지난 이벤트 상세</p>
+							<span class="date">2018.08.20 ~ 2018.09.30</span>
+						</div>
+						<div class="detailContent">
+							<img src="../static/images/sample/event_detail.jpg" alt="" />
+						</div>
+						<ul class="detailNav">
+							<li>
+								<a href="#">
+									<em class="prev"><span>이전글</span></em>
+									<span class="listTxt ellipsis">조용~한 NFERA 구매하고, 맑은 공기까지 챙기세요!</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<em class="next"><span>다음글</span></em>
+									<span class="listTxt ellipsis">추석맞이 인기 타이어 최 ~ 대 특가</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="btnBox">
+						<a href="#" class="btn ty2"><span>목록</span></a>
+					</div>
+				</div>
+				<!-- 지난 이벤트/당첨자 발표 -->
+			</div>
+		</section>
+
+		<!-- 하단 영역 -->
+		@@include('include/footer.html')
+		<!-- //하단 영역 -->
+	</div>
+</body>
+</html>
