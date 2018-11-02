@@ -465,35 +465,90 @@
                     margin-top: 22px;
                 }
 
-                .list7 {}
-
-                .list7>li {
-                    padding-left: 22px;
-                    font-weight: 400;
-                    font-size: 16px;
-                    color: #454545;
-                    background: url(../static/images/common/icon/icon_list7.png) no-repeat left 3px;
-                    line-height: 20px;
-                }
-
-                .list7>li+li {
-                    margin-top: 7px;
-                }
-
-                .list7>li>.text {
-                    margin-top: 10px;
-                    font-size: 15px;
-                }
-
-                .list7>li>.text>* {
-                    font-size: 15px;
-                }
-
-                .itemtList3>li .amount {
+                .itemtList3>li .rentalfee {
                     display: table-cell;
                     vertical-align: top;
                     width: 260px;
                 }
+
+                .rentalfee {}
+
+                .rentalfee>.total {
+                    font-size: 0;
+                }
+
+                .rentalfee>.total .tit {
+                    font-weight: 500;
+                    font-size: 18px;
+                    color: #454545;
+                    text-align: right;
+                }
+
+                .rentalfee>.total .price {
+                    display: inline-block;
+                    width: 180px;
+                    font-weight: 400;
+                    font-size: 18px;
+                    color: #454545;
+                    text-align: right;
+                }
+
+                .rentalfee>.total .price .num {
+                    font-weight: 500;
+                    font-size: 24px;
+                    color: #6a2276;
+                }
+
+                .rentalfee .btns {
+                    margin-top: 18px;
+                    text-align: right;
+                }
+
+                .rentalfee .btns .inner {}
+
+                .rentalfee .btns .inner .btn.ty6 {
+                    width: 200px;
+                    margin-left: 7px;
+                    line-height: 40px;
+                }
+
+                .rentalfee .btns .inner+.inner {
+                    margin-top: 10px;
+                }
+
+                .rentalfee .btns .inner .btnsLink {
+                    display: inline-block;
+                    width: 120px;
+                    line-height: 34px;
+                    border: 1px solid #666;
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: #666;
+                    text-align: center;
+                }
+
+                .rentalfee .btns .inner .btnsLink+.btnsLink {
+                    margin-left: 7px;
+                }
+
+                .rentalfeeList {}
+
+                .rentalfeeList dt {
+                    float: left;
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: #666;
+                }
+
+                .rentalfeeList dd {
+                    padding-left: 180px;
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: #666;
+                    text-align: right;
+                }
+
+                .rentalfeeList dd .num {}
             </style>
 
             <div class="prdDetailCont">
@@ -512,19 +567,56 @@
 										넥센 타이어만의 타이어 품질을 경험하세요!
 									</p>
                                         <ul class="list7">
-                                            <li>3년 렌탈 기간
-                                                <div class="text">타이어 마모</div>
-                                            </li>
                                             <li>3년 렌탈 기간</li>
-                                            <li>3년 렌탈 기간
-                                                <div class="text">타이어 마모</div>
+                                            <li>3종 렌탈 케어 서비스 제공
+                                                <div class="text">
+                                                    <span class="serviceTxt">① 마모/파손케어</span>
+                                                    <span class="serviceTxt">② 경정비 케어</span>
+                                                    <span class="serviceTxt">
+													③ 토탈케어
+													<span class="tipGroup">
+														(
+														<span class="tips">걱정제로 <span class="toolTip"></span></span>
+                                                    <span class="tips">엔진오일 <span class="toolTip"></span></span>
+                                                    <span class="tips">방문점검 <span class="toolTip"></span></span>
+                                                    <span class="tips">위치교환 <span class="toolTip"></span></span>
+                                                    <span class="tips">얼라인먼트 제공 <span class="toolTip"></span></span>
+                                                    )
+                                                    </span>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li>타이어 무한 서비스
+                                                <div class="text">타이어 마모/파손 무상교체</div>
+                                            </li>
+                                            <li>엔진오일 3회 서비스
+                                                <div class="text">엔진오일까지 무상교체</div>
                                             </li>
                                         </ul>
                                 </dd>
                             </dl>
                         </div>
-                        <div class="amount">
-
+                        <div class="rentalfee">
+                            <div class="total">
+                                <span class="tit">월 렌탈료</span>
+                                <span class="price"><span class="num">10,000</span> 원</span>
+                            </div>
+                            <div class="btns">
+                                <div class="inner">
+                                    <a href="#" class="btn cart">장바구니</a>
+                                    <a href="#" class="btn ty6">주문하기</a>
+                                </div>
+                                <div class="inner">
+                                    <a href="#" class="btnsLink">고객후기</a>
+                                    <a href="#" class="btnsLink">상담신청</a>
+                                </div>
+                            </div>
+                            <dl class="rentalfeeList">
+                                <dt>월 렌탈료</dt>
+                                <dd><span class="num">9,000</span>원</dd>
+                                <dt>월 렌탈료</dt>
+                                <dd><span class="num">9,000</span>원</dd>
+                            </dl>
                         </div>
                     </li>
                 </ul>
