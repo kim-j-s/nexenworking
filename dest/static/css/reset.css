@@ -78,10 +78,14 @@ button span{
 .color3 {color:#b6985a !important;}
 
 .mt10 {margin-top:10px;}
+.mt20 {margin-top:20px;}
 .mt46 {margin-top:46px;}
 .mt50 {margin-top:50px;}
+.mt56 {margin-top:56px;}
 
 .ml10 {margin-left:10px;}
+
+.pt62 {padding-top:62px;}
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 
