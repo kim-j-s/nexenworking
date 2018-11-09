@@ -302,6 +302,27 @@ $(function(){
 		});
 	});
 
+	// 상품선택 전체 선택
+	$('.checkbox.single.all').click(function(){
+		 var chkbox = $(this).find('input');
+		 if (chkbox.prop('checked'))
+		 {
+			 $(this).closest('.table').find('tbody').find('input:checkbox').prop("checked",true);
+		 } else {
+			 $(this).closest('.table').find('tbody').find('input:checkbox').prop("checked",false);
+		 }
+	 });
+
+	 $('.table').find('tbody').find('input:checkbox').each(function(){
+		$(this).click(function(){
+			console.log('zz');
+			if (!$(this).prop('checked'))
+			{
+				$(this).closest('.table').find('.checkbox.single.all').find('input:checkbox').prop("checked",false);
+			}
+		});
+	});
+
 	// faq
 	var faqList = $('.faqWrap > li')
 	$(faqList).each(function(faq){
@@ -323,9 +344,17 @@ $(function(){
 	$('.switch').each(function(){
 		$(this).find('.switchBtn').eq(1).click(function(){
 			$(this).closest('.switch').addClass('on');
+			if ( $(this).closest('.switch').hasClass('cartype') )
+			{
+				$(this).closest('.switchGroup').addClass('on');
+			}
 		});
 		$(this).find('.switchBtn').eq(0).click(function(){
 			$(this).closest('.switch').removeClass('on');
+			if ( $(this).closest('.switch').hasClass('cartype') )
+			{
+				$(this).closest('.switchGroup').removeClass('on');
+			}
 		});
 	});
 

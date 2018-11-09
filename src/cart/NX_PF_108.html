@@ -1,0 +1,36 @@
+@@include('include/head_sub.html',{
+	"pagetitle": "주문/결제 진행 중 오류"
+})
+<body>
+	<div id="wrap">
+		<!-- 헤더영역 -->
+		@@include('include/header.html')
+		<!-- //헤더영역 -->
+
+		<div class="location">
+			<span class="home">홈</span>
+			<span>주문/결제 진행 중 오류</span>
+		</div>
+
+		<section id="content">
+			<h1 class="sectionTitle">주문/결제 진행 중 오류 발생</h1>
+
+			<div class="orderError">
+				<strong>주문/결제 진행 중 오류가 발생하였습니다.</strong>
+				<p class="txt1">"홈으로 이동" 혹은 "장바구니 이동" 버튼을 클릭 후 다시 진행해 주시기 바랍니다. </p>
+				<p class="txt2">관련 문의사항은 고객센터(1855-0100 상담시간 : 평일 오전 9:00 ~ 오후 6:00)로 <br />문의주시면 친절하게 안내해 드리겠습니다.</p>
+				<span class="fin">감사합니다.</span>
+			</div>
+
+			<div class="btnBox">
+				<a href="#" class="btn ty8"><span>홈으로</span></a>
+				<a href="#" class="btn ty7"><span>장바구니</span></a>
+			</div>
+		</section>
+
+		<!-- 하단 영역 -->
+		@@include('include/footer.html')
+		<!-- //하단 영역 -->
+	</div>
+</body>
+</html>
