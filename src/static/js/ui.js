@@ -464,7 +464,6 @@ $(function(){
 			}
 		}
 
-
 		// 장바구니
 		var CartLng = $('.orderView').length;
 		var CartBaseTop = $('.paymentWrap').offset();
