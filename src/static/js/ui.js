@@ -444,8 +444,9 @@ $(function(){
 		$('.prodGalleryViewer').append(tireThumbImg);
 	}
 
-	// 타이어 상세 페이지	
+	// 스크롤 이벤트
 	$(window).scroll(function(){
+		// 타이어 상세 페이지	
 		var FloatingChk = $('.floating').length;
 		var Top = $('body, html').scrollTop();
 		// 타이어 상품 상세 탭
@@ -460,6 +461,22 @@ $(function(){
 			} else {
 				$('.floating').find('.tabList').removeClass('fixed');
 				$('.floating').removeClass('pt62');
+			}
+		}
+
+
+		// 장바구니
+		var CartLng = $('.orderView').length;
+		var CartBaseTop = $('.paymentWrap').offset();
+		var CartTop = $('.orderView').offset();
+		if (CartLng > 0)
+		{
+			if ( Top > CartBaseTop.top + 74)
+			{
+				$('.orderView').removeClass('fix');
+				$('.orderView').css('top',Top - CartBaseTop.top);
+			} else {
+				$('.orderView').addClass('fix');
 			}
 		}
 	});

@@ -272,6 +272,7 @@ text-align:center;}
 .list1 {}
 .list1 > li {position:relative; padding-left:15px; font-weight:400; font-size:16px; color:#454545;}
 .list1 > li:before {content:''; position:absolute; top:8px; left:0; width:3px; height:3px; background:#000;}
+.list1 > li > .ops {padding-left:12px; font-weight:500; font-size:16px; color:#454545;}
 .list1 > li + li {margin-top:13px;}
 .list1 > li > .list8 {margin-top:5px;}
 
@@ -411,6 +412,11 @@ text-align:center;}
 .table table tbody td .emailGroup .inputBox {width:165px;}
 .table table tbody td .emailGroup .middle {display:inline-block; width:30px; text-align:center; vertical-align:middle;}
 .table table tbody td .emailGroup .inputBox + .selectbox {margin-left:7px;}
+
+.telGroup {display:inline-block; vertical-align:middle;}
+.telGroup .inputBox {width:130px; vertical-align:middle;}
+.telGroup .inputBox + .inputBox {width:105px; margin-left:7px;}
+.telGroup .selectbox + .inputBox {width:105px; margin-left:7px;}
 
 .orderInfo {display:inline-block; margin-left:20px; font-size:0; vertical-align:middle;}
 .orderInfo .txt {font-weight:400; font-size:16px; color:#666; text-align:center;}
@@ -854,7 +860,6 @@ no-repeat left center;}
 .switchGroup + .selectGroup {margin-left:12px;}
 .switchGroup.on + .selectGroup > .selectbox {width:261px;}
 .switchGroup.on + .selectGroup > .selectbox:nth-of-type(1) {width:260px;}
-/* .switchGroup.on + .selectGroup > .selectbox:nth-of-type(3) {width:261px;} */
 .switchGroup.on .switch:nth-of-type(2) {display:none;}
 .schWrap + .itemWrap {margin-top:48px;}
 
@@ -1190,6 +1195,7 @@ no-repeat left center;}
 .orderAmount + .btnBox {margin-top:70px;}
 
 .orderView {position:absolute; top:74px; right:0; width:335px; padding:0 14px; border:2px solid #812990;}
+.orderView.fix {top:74px !important;}
 .orderView > h3 {font-weight:500; font-size:22px; color:#333; line-height:78px; border-bottom:1px solid #d5d5d5;}
 .orderView > .inner {max-height:369px; overflow:auto; border-bottom:1px dashed #dcdcdc;}
 .orderView > .inner .item > .tit {display:block; padding:15px 15px 9px 15px; font-weight:500; font-size:16px; color:#333; line-height:20px;}
@@ -1257,14 +1263,6 @@ no-repeat left center;}
 .layerPopupWrap:before {content:''; display:inline-block; height:100%; vertical-align:middle; text-align:center;}
 .layerPopupWrap.on {visibility:visible; opacity:1;}
 .layerPopupWrap > .bg {position:fixed; top:0; right:0; width:100%; height:100%; background:rgba(0,0,0,0.8);}
-/*
-.layerPopupWrap .layerPopCont {position:relative; display:inline-block; vertical-align:middle; opacity:0; width:1000px; padding:36px 40px 32px 40px; background:#fff; border:1px solid #c5c5c5;  transition:transform .4s ease .2s; text-align:left;}
-.layerPopupWrap .layerPopCont {
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.35);
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.35);
-	box-shadow: 0 1px 2px rgba(0,0,0,.35);
-}
-*/
 .layerPopupWrap.on .layerPopCont {opacity:1;}
 .layerPopCont {position:relative; display:inline-block; vertical-align:middle; width:1000px; padding:36px 40px 32px 40px; background:#fff; text-align:left; border: solid 1px #c5c5c5;}
 .layerPopCont {
@@ -1277,10 +1275,16 @@ no-repeat left center;}
 .layerPopCont .popupTitle + .txt {margin-top:12px; font-size:16px; color:#888;}
 .layerPopCont .popupTitle + .txt + .table {margin-top:9px;}
 .layerPopCont .popupTitle + .table.ty4 {margin-top:14px;}
+.layerPopCont .popupTitle + .list1 {padding-left:15px; padding-top:14px; margin-top:14px; border-top:2px solid #353535;}
+.layerPopCont .popupTitle + .list1 > li + li {margin-top:21px;}
+.popupTitle + .subTxt2 {margin-top:14px; padding-top:20px; border-top:2px solid #353535;}
 .layerPopCont .layerF {margin-top:20px; overflow:hidden;}
 .layerPopCont .layerF .mark2 {display:inline-block; vertical-align:middle; color:#666;}
 .layerPopCont .layerF .btns {float:right;}
+.layerPopCont .layerF .btns.tc {float:none; text-align:center;}
 .layerPopCont .layerF .btns .btn + .btn {margin-left:7px;}
+.subTxt2 {}
+.subTxt2 > p {padding:0 20px; font-weight:400; font-size:15px; color:#333; line-height:58px; background:#f5f5f5; border:1px solid #e5e5e5;}
 
 
 .popSearch {position:relative; margin-top:14px; padding:14px 10px; border-top:2px solid #353535; border-bottom:1px solid #c5c5c5;}
@@ -1344,6 +1348,47 @@ no-repeat left center;}
 
 .rstTxt {color:#888; padding:10px 0 13px 0;}
 .rstTxt > span {font-weight:500; font-size:16px; color:#812990;}
+
+.opModify {margin-top:15px; padding-top:13px; padding-left:15px; border-top:1px dashed #bebebe;}
+.opModify {overflow:hidden;}
+.opModify > .opModifys {position:relative; display:block; float:left; padding-left:15px; line-height:36px;}
+.opModify > .opModifys > span {display:inline-block; font-weight:400; font-size:16px; color:#454545; vertical-align:middle;}
+.opModify > .opModifys:before {content:''; position:absolute; top:18px; left:0; width:3px; border-bottom:3px solid #000;}
+.opModify > .opModifys + .opModifys {margin-left:64px;}
+.opModify > .opModifys .selectbox {margin-left:14px;}
+.opModify > .opModifys.etc {float:none; margin-left:0; clear:both;}
+.opModify > .opModifys .ops {height:401px; margin-left:-15px; padding:0 30px; border:1px solid #d2d2d2; background:#f8f8f8; overflow:auto;}
+.opModify > .opModifys .ops li {height:100px; padding-top:25px;}
+.opModify > .opModifys .ops li + li {border-top:1px dashed #bebebe;}
+.opModify > .opModifys .ops li > strong {display:block; font-weight:500; font-size:15px; color:#454545;}
+.opModify > .opModifys .ops .radio {margin-top:14px;}
+.opModify > .opModifys .ops .radio .radioBox + .radioBox {margin-left:45px;}
+
+.subTxt2 + .popupTitle2 {margin-top:17px;}
+.popupTitle2 {font-weight:500; font-size:18px; color:#454545;}
+.popupTitle2 + .cInfo {margin-top:10px;}
+.cInfo {padding:9px 20px 20px 20px; background:#f5f5f5; border:1px solid #e5e5e5;}
+.cInfo > dl {display:table; width:100%;}
+.cInfo > dl + dl {margin-top:10px;}
+.cInfo > dl dt {display:table-cell; width:106px; vertical-align:middle; font-weight:400; font-size:15px; line-height:36px;}
+.cInfo > dl dd {display:table-cell; vertical-align:middle; font-weight:400; font-size:15px; color:#454545; line-height:36px;}
+.cInfo > dl dd.etc {font-size:0;}
+.cInfo > dl dd.etc .selectbox + .selectbox {margin-left:10px;}
+.cInfo + .cAgree {margin-top:20px;}
+
+.cAgree {}
+.cAgree .chk {padding:15px 20px; border:1px solid #d2d2d2;}
+.cAgree .checkbox label{font-weight:400; color:#454545;}
+.cAgree > .txt {padding:17px 20px 18px 20px; border:1px solid #d2d2d2; border-top:none; background:#f8f8f8;}
+.cAgree > .txt > ul li {font-size:15px;}
+.cAgree > .txt > ul li + li {margin-top:7px;}
+.cAgree + .layerF {margin-top:30px;}
+
+.layerF + .consign {margin-top:27px;}
+.consign {}
+.consign > li {font-size:15px;}
+.consign > li + li {margin-top:7px;}
+
 
 /* etc */
 .disabledBox {display:inline-block; width:60px; height:20px; border:1px solid #d5d5d5; background:#eee; overflow:hidden; text-indent:-999px; vertical-align:middle;}
