@@ -1,0 +1,30 @@
+@@include('include/head_sub.html',{
+	"pagetitle": "Error"
+})
+<body>
+	<div id="wrap">
+		<!-- 헤더영역 -->
+		@@include('include/header.html')
+		<!-- //헤더영역 -->
+
+		<section id="content">
+			<div class="errorPage">
+				<h1 class="tit">400 Error</h1>
+				<p class="txt1">
+					이용에 불편을 드려 죄송합니다. 
+					<strong>요청하신 페이지를 찾을 수 없습니다.</strong>
+				</p>
+				<p class="txt2">
+					입력하신 주소가 정확한지 다시 한번 확인해 주시기 바랍니다.
+				</p>
+				<div class="btnBox">
+					<a href="#" class="btn ty7"><span>메인으로</span></a>
+				</div>
+			</div>
+		</section>
+		<!-- 하단 영역 -->
+		@@include('include/footer_nowing.html')
+		<!-- //하단 영역 -->
+	</div>
+</body>
+</html>

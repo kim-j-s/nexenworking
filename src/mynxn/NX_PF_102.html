@@ -1,0 +1,52 @@
+@@include('include/head_sub.html',{
+	"pagetitle": "회원정보수정"
+})
+<body>
+	<div id="wrap">
+		<!-- 헤더영역 -->
+		@@include('include/header.html')
+		<!-- //헤더영역 -->
+
+		<div class="location">
+			<span class="home">홈</span>
+			<span>나의정보</span>
+			<span>회원정보수정</span>
+		</div>
+
+		<section id="content">
+			<h1 class="sectionTitle">회원정보확인</h1>
+			<h2 class="sectionTitle2">정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인 합니다.</h2>
+
+			<div class="loginWrap">
+				<div class="inner">
+					<!-- 2018-11-22 삭제 -->
+					<!-- <p class="txt etc">정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인 합니다.</p> -->
+					<!--// 2018-11-22 삭제 -->
+					<div class="inpWrap">
+						 <div class="inputBox">
+							<input type="text" class="inp" value="testID" disabled="disabled" />
+						</div>
+						<div class="inputBox error">
+							<input type="password" placeholder="비밀번호 입력" class="inp" />
+						</div>
+						<!-- p 태그는 삭제하시 마시고 가운데 들어가는 글자만 제어해 주세요 공간설정에 필요 -->
+						<p class="txt color4">비밀번호가 일치하지 않습니다. 다시 확인 후 입력해 주세요.</p>
+						<!--// p 태그는 삭제하시 마시고 가운데 들어가는 글자만 제어해 주세요 공간설정에 필요 -->
+						<div class="btnBox double">
+							<a href="#" class="btn ty15"><span>취소</span></a>
+							<!-- 비활성화 버튼 -->
+							<!-- <a href="#" class="btn ty16"><span>확인</span></a> -->
+							<!--// 비활성화 버튼 -->
+							<a href="#" class="btn ty7"><span>확인</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 하단 영역 -->
+		@@include('include/footer.html')
+		<!-- //하단 영역 -->
+	</div>
+</body>
+</html>
