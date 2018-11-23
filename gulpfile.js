@@ -31,7 +31,8 @@ gulp.task('html', function() {
 			basepath : 'src/'
 		}))
 		.pipe(prettyHtml({
-			indent_size: 4
+			//indent_size: 4
+			indent_with_tabs: true
 		}))
 		.pipe(gulp.dest('dest/'))
 		.pipe(browserSync.reload(
