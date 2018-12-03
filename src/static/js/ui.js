@@ -51,142 +51,41 @@ $(function(){
 		});
 	}
 
-	//mainRoll
-	var rollTime = 1200;
-	var rollTime2 = 3000;
-	var rollTime3 = 2500;
-	var rollCnt = 0;
-	var aniCnt = 0;
-	var mainRollLng = $('.mainRoll').find('.item').length;
-	var mrObj = $('.mainRoll').children('.items');
-	var mkDot = '<a href="#"></a>';
-	var mrLeft = $('.mainRoll').find('.btnLeft');
-	var mrRight = $('.mainRoll').find('.btnRight');
-
-	// rollReset
-	if (mainRollLng > 1)
-	{
-		for (var i = 0; i < mainRollLng ;i ++ )
-		{
-			$('.mainRoll').find('.dots').append(mkDot);
-		}
-		$('.mainRoll').find('.dots > a').eq(0).addClass('on');
-	} else {
-		$('.mainRoll').find('.control').hide();
-		$('.mainRoll').find('.btns').hide();
-	}
-
-	$(mrLeft).on('click', function(){
-		aniCnt++;
-		mrLeftRoll();
+	// mainRoll
+	$('.mainRoll > .items').slick({
+		autoplay: true,
+		autoplaySpeed: 2500,
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		pauseOnFocus: false,
+		pauseOnHover: false,
+		adaptiveHeight: false,
+		arrows: true,
+		dots: true
 	});
-
-	$(mrLeft).on('mouseenter', function(){
-		mrStopInterval();
-		$('.mainRoll').find('.play').addClass('on');
-	});
-
-	$(mrRight).on('click', function(){
-		aniCnt++;
-		mrRightRoll();
-	});
-
-	$(mrRight).on('mouseover', function(){
-		mrStopInterval();
-		$('.mainRoll').find('.play').addClass('on');
-	});
-
-	$('.mainRoll').find('.play').on('click', function(){
-		if ( $(this).hasClass('on') )
-		{
-			$(this).removeClass('on');
-			mrrestartRolling();
-		} else {
-			$(this).addClass('on');
-			mrStopInterval();
-		}
-	});
-
-	if (mainRollLng > 1)
-	{
-		setTimeout(function(){
-			mrRolling = mrStartInterval();
-		},rollTime2);
-	}
-
-	function mrStartInterval() {
-		i = setInterval(function(){
-			rollCnt++;
-			if (rollCnt > mainRollLng - 1)
-			{
-				rollCnt = 0;
-			}
-			$('.mainRoll').find('.items').stop(true,true).animate({
-				left: '-438px'
-			},rollTime, function(){
-				$('.mainRoll').find('.items').children('.item').first().appendTo(mrObj);
-				$(mrObj).css('left',0);
-				aniCnt = 0;
-			});
-			indicator();
-		},rollTime3);
-		return i;
-	}
-
-	// 롤링 시작
-	function mrrestartRolling(){
-		mrRolling = mrStartInterval();
-	}
 	
-	// 재생정지
-	function mrStopInterval(){
-		clearInterval(mrRolling);
+	var mainRollLng = $('.mainRoll').find('.item').length;
+	var mainRBtn = '<li class="etc"><button class="play"><span>일시정지/재생</span></button></li>';
+	if (mainRollLng > 0)
+	{
+		$('.mainRoll').find('.slick-dots').append(mainRBtn);
 	}
 
-	function mrLeftRoll() {
-		if (aniCnt == 1)
-		{
-			rollCnt--;
-			if (rollCnt < 0)
+	$(window).load(function(){
+		var mainRollPp = $('.mainRoll').find('.play');
+		$(mainRollPp).on('click', function(){
+			if ( $(this).hasClass('on') )
 			{
-				rollCnt = mainRollLng - 1;
+				$(this).removeClass('on');
+				$('.mainRoll > .items').slick('slickPlay');
+			} else {
+				$(this).addClass('on');
+				$('.mainRoll > .items').slick('slickPause');
 			}
-			$('.mainRoll').find('.items').stop(true,true).animate({
-				left: '-438px'
-			},rollTime, function(){
-				$('.mainRoll').find('.items').children('.item').first().appendTo(mrObj);
-				$(mrObj).css('left',0);
-				aniCnt = 0;
-			});
-			indicator();
-		}
-	}
-
-	function mrRightRoll() {
-		if ( aniCnt == 1 )
-		{
-			rollCnt++;
-			if (rollCnt > mainRollLng - 1)
-			{
-				rollCnt = 0;
-			}
-			$('.mainRoll').find('.items').children('.item').last().prependTo(mrObj);
-			$(mrObj).css('left','-438px');
-			$('.mainRoll').find('.items').stop(true,true).animate({
-				left: '0'
-			},rollTime, function(){
-				aniCnt = 0;
-			});
-			indicator();
-		}
-
-		$('.fix').html(' + ' + rollCnt);
-	}
-
-	function indicator() {
-		$('.mainRoll').find('.dots > a').removeClass('on');
-		$('.mainRoll').find('.dots > a').eq(rollCnt).addClass('on');
-	}
+		});
+	});
+	// mainRoll
 
 	$('.pageTop').on('click', function(e){
 		e.preventDefault();
@@ -208,6 +107,7 @@ $(function(){
 			$(this).removeClass('on');
 			$(this).next('.cList').removeClass('on');
 			$(this).closest('.inner').animate({
+				width: '79px',
 				left: '0'
 			}, 500);
 		} else {
@@ -220,6 +120,7 @@ $(function(){
 			$(this).addClass('on');
 			$(this).next('.cList').addClass('on');
 			$(this).closest('.inner').animate({
+				width: '428px',
 				left: '-349px'
 			}, 500);
 		}
@@ -260,6 +161,81 @@ $(function(){
 	 * gnb 
 	 * ============================== */
 
+	 $('#headerWrap.etc').on('mouseenter', function(){
+		 var cImg = $(this).find('h1').find('img');
+		 $(this).removeClass('main');
+		 $(cImg).attr("src",$(cImg).attr("src").replace("logo_white.png","logo.png"));
+	 }).on('mouseleave', function(){
+		 var cImg = $(this).find('h1').find('img');
+		 $(cImg).attr("src",$(cImg).attr("src").replace("logo.png","logo_white.png"));
+		 if ( !$('.allBtn').hasClass('on') )
+		 {
+			 $(this).addClass('main');
+		 }
+	 });
+
+	gnbBack();
+	$(window).resize(function(){
+		 gnbBack();
+	});
+	function gnbBack(){
+		var wWidth = $(window).width();
+		var bCenter = wWidth / 2;
+		$('.menuAll').find('.amback').css({'width':wWidth, 'margin-left':-bCenter});
+		$('.gnbBack').css({'width':wWidth, 'margin-left':-bCenter});
+	}
+
+	var gnbBg = '<div class="gnbBg"></div>';
+	var allMenuBtn = $('.menuAll > .allBtn');
+	$(allMenuBtn).on('click', function(){
+		if ( $(this).hasClass('on') )
+		{
+			openAllmenu();
+			
+		} else {
+			closeAllmenu();
+		}
+	});
+
+	function openAllmenu() {
+		$(allMenuBtn).removeClass('on');
+		$('.menuAllList').stop(true, false).slideUp(500);
+		$('.gnbBg').removeClass('on');
+		setTimeout(function(){
+			$('.gnbBg').remove();
+		},300);
+		$('.mainWing').removeClass('down');
+		$('.wing').removeClass('down');
+	}
+	function closeAllmenu() {
+		$(allMenuBtn).addClass('on');
+		$('.mainWing').addClass('down');
+		$('.wing').addClass('down');
+		$('.menuAllList').stop(true, false).slideDown(500);
+		$(gnbBg).insertBefore('#footerWrap');
+		setTimeout(function(){
+			$('.gnbBg').addClass('on');
+		},100);
+	}
+
+	var GnbList = $('.gnbList > li');
+	$(GnbList).bind("mouseenter focusin", function() {
+		$(this).addClass("on").siblings().removeClass("on");
+		$(gnbBg).insertBefore('#footerWrap');
+		$('.gnbBg').addClass('on');
+		$('.mainWing').addClass('down');
+		$('.wing').addClass('down');
+		$('.gnbWrap').addClass('on');
+	});
+	$(GnbList).bind("mouseleave focusout", function() {
+		$(this).removeClass("on");
+		$('.gnbBg').removeClass('on');
+		$('.gnbBg').remove();
+		$('.mainWing').removeClass('down');
+		$('.wing').removeClass('down');
+		$('.gnbWrap').removeClass('on');
+	});
+
 
 
 	/* ==============================
@@ -281,6 +257,11 @@ $(function(){
 	}
 	$('.topBanner').find('.allcnt').html(TBLng);
 
+	if (TBLng > 1)
+	{
+		TBRolling = StartInterval();
+	}
+
 	// topbanner close
 	$('.topBanner').find('.topBclose').on('click', function(){
 		$('.topBanner').animate({
@@ -298,6 +279,7 @@ $(function(){
 		}
 		TBL(TBCnt);
 	});
+
 	$(TBLeft).on('mouseenter', function(){
 		StopInterval();
 		$('.topBanner').find('.playBtn').addClass('on');
@@ -330,13 +312,6 @@ $(function(){
 			restartRolling();
 		}
 	});
-
-	if (TBLng > 1)
-	{
-		setTimeout(function(){
-			TBRolling = StartInterval();
-		},RollingTime);
-	}
 
 	function StartInterval() {
 		i = setInterval(function(){
@@ -387,12 +362,6 @@ $(function(){
 			$('.mainContent.centerCont').css('height','0');
 		});
 	});
-
-	/*
-	$('.mainContent.leftCont').click(function(){
-		MoveCenter();
-	});
-	*/
 
 	$('.centerGo').click(function(){
 		MoveCenter();
@@ -476,6 +445,9 @@ $(function(){
 		$('.mainVisual').height(winHeight);
 	});
 	$('.mainVisual').height(winHeight);
+	$('.mainRightVisual').height(winHeight);
+	$('.mainLeftVisual').height(winHeight);
+		
 
 	$('.goPage').click(function(){
 		movement = $('.mainVisual').height();
@@ -523,12 +495,8 @@ function scrollAnimation(){
 			}
 			$el.addClass('animated '+animationClass);
 
-			$el.waypoint(function(){
-				$el.removeClass('wait-animation');
-			}, { offset: '100%', triggerOnce: true });
-		});
-	});
-}
+			$el.waypoint(function(){ $el.removeClass('wait-animation'); }, { 
+			offset: '150%', triggerOnce: true }); }); }); }
 
 
 /* form select */
@@ -903,12 +871,14 @@ $(function(){
 	}
 
 	// 타이어 상세 설정 탭
+	/*
 	$('.settingList > li > .tit').each(function(){
 		$(this).click(function(){
 			$(this).parent('li').siblings().removeClass('on');
 			$(this).parent('li').addClass('on');
 		});
 	});
+	*/
 
 	// 타이어 종류 셀렉트
 	$('.makerGroup1').each(function(){
